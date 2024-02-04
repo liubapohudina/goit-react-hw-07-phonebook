@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { addContacts} from '../../redux/contacts/contacts-slice';
+import { addContacts } from '../../redux/contacts/contacts-slice';
+
 
 
 const Form = () => {
@@ -35,17 +36,15 @@ const Form = () => {
       contacts: [
         ...contacts,
         {
-          number: values.number,
+          phone: values.phone,
           name: values.name,
           id: nanoid(),
         }
       ],
       name: '',
-      number: '',
+      phone: '',
     });
     event.currentTarget.reset()
-
-    
     const action = addContacts(values)
     dispatch(action)
     }
@@ -59,7 +58,7 @@ const Form = () => {
             <input className={styles.input} onChange={onChangeInput} type="text" name="name" id="username" required placeholder="Please, enter data of contact" />
             
             <label htmlFor="tel">Phone number </label>
-            <input className={styles.input} onChange={onChangeInput} type="tel" name="number" id="tel" required placeholder="Please, enter a phone number"/>
+            <input className={styles.input} onChange={onChangeInput} type="tel" name="phone" id="tel" required placeholder="Please, enter a phone number"/>
            
             <Button type="submit" text="Add contact"  />
         </form>
