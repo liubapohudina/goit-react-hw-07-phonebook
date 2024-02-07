@@ -1,14 +1,7 @@
 
 
-export const contacts = store => store.contacts;
+//export const contacts = store => store.contacts;
 
-// export const filterContacts = store => {
-//     const { contacts, filter } = store;
-//     const filteredContacts = contacts.filter(item => item.name?.trim().toLocaleLowerCase().includes(filter.trim()));
-//     console.log(contacts);
-//     console.log(filter)
-//    return filteredContacts;
-// };
 export const filterContacts = store => {
     const { contacts, filter } = store;
 
