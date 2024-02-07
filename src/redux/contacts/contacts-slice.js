@@ -6,7 +6,7 @@ const initialState = {
     isLoading: false,
     error: null,
 }
-
+console.log(initialState.error)
 const contactsSlice = createSlice({
     name: 'contacts',
     initialState,
@@ -19,6 +19,18 @@ const contactsSlice = createSlice({
             state.items = [...payload];
         },
         fetchContactsError: (state, {payload}) => {
+            state.isLoading = false;
+            state.error = payload;
+        },
+        addContactsLoading: (state) => {
+            state.isLoading = true;
+            state.error = null;
+        },
+        addContactsSucsess: (state, {payload}) => {
+            state.isLoading = false;
+            state.items = [...payload];
+        },
+        addContactsError: (state, {payload}) => {
             state.isLoading = false;
             state.error = payload;
         },
@@ -39,5 +51,5 @@ const contactsSlice = createSlice({
     }
 })
 
-export const { addContacts, deleteContacts, fetchContactsLoading, fetchContactsError, fetchContactsSucsess } = contactsSlice.actions;
+export const { addContacts, deleteContacts, fetchContactsLoading, fetchContactsError, fetchContactsSucsess, addContactsError, addContactsLoading, addContactsSucsess } = contactsSlice.actions;
 export default contactsSlice.reducer;

@@ -1,6 +1,6 @@
 
 
-//export const contacts = store => store.contacts;
+export const contacts = store => store.contacts;
 
 export const filterContacts = store => {
     const { contacts, filter } = store;
