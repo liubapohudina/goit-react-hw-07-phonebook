@@ -9,7 +9,7 @@ const Filter = () => {
   const dispatch = useDispatch();
   const onChangeFilter = (event) => {
     const filterValue = event.target.value
-     const action = addFilter({filter: filterValue})
+    const action = addFilter({filter: filterValue})
     dispatch(action)
   }
 

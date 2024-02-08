@@ -9,8 +9,8 @@ import { useEffect } from "react";
 
 
 const ContactList = () => {
-  const {items, isLoading} = useSelector(filterContacts);
-  
+  const { isLoading } = useSelector(filterContacts);
+  const filteredContacts = useSelector(filterContacts)
 
   const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ const ContactList = () => {
     dispatch(fetchDeleteContacts(id));
   }
 
-  const elements = items.map(item => (
+  const elements = filteredContacts && filteredContacts.map(item => (
     <li className={styles.listContacts} key={item.id}>
       <p>{item.name}  {item.phone}</p>
       <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button> 
@@ -35,7 +35,7 @@ const ContactList = () => {
   return (
   <>
       {isLoading && <Loader />}
-      {Boolean(items.length) && <div className="contactsList">
+      {filteredContacts && filteredContacts.length && <div className="contactsList">
       <ul>{elements}</ul>
       </div>}
     </>

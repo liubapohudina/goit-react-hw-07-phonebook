@@ -6,7 +6,7 @@ export const filterContacts = store => {
     const { contacts, filter } = store;
 
   if (!filter || typeof filter !== 'string') {
-        return contacts;
+        return contacts.items;
     }
 
     const normalizedFilter = filter.trim().toLowerCase();
