@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 
 const ContactList = () => {
-  const { isLoading } = useSelector(filterContacts);
+  const { items, isLoading } = useSelector(filterContacts);
   const filteredContacts = useSelector(filterContacts)
 
   const dispatch = useDispatch();
@@ -24,19 +24,29 @@ const ContactList = () => {
     dispatch(fetchDeleteContacts(id));
   }
 
-  const elements = filteredContacts && filteredContacts.map(item => (
-    <li className={styles.listContacts} key={item.id}>
-      <p>{item.name}  {item.phone}</p>
-      <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button> 
-    </li>
-  ));
+const elements = items ? (
+    items.map(item => (
+        <li className={styles.listContacts} key={item.id}>
+            <p>{item.name}  {item.phone}</p>
+            <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button> 
+        </li>
+    ))
+) : (
+    filteredContacts.map(item => (
+        <li className={styles.listContacts} key={item.id}>
+            <p>{item.name}  {item.phone}</p>
+            <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button> 
+        </li>
+    ))
+);
+
   
 
   return (
   <>
       {isLoading && <Loader />}
-      {filteredContacts && filteredContacts.length && <div className="contactsList">
-      <ul>{elements}</ul>
+      {<div className="contactsList">
+        <ul>{elements}</ul>
       </div>}
     </>
   );
