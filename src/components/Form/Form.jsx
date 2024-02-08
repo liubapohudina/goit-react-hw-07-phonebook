@@ -5,12 +5,14 @@ import styles from './form.module.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { fetchAddContacts } from "../../redux/contacts/contacts-operations";
+import { toast } from "react-toastify";
+import { contacts } from "../../redux/contacts/contacts-selector";
 
 
 
 const Form = () => {
-  const contacts = useSelector(store => store.contacts.items);
-    const dispatch = useDispatch();
+  const contactsAll = useSelector(contacts);
+  const dispatch = useDispatch();
   const [values, setValues] = useState({});
   
 
@@ -27,10 +29,10 @@ const Form = () => {
   const onClickSubmit = (event) => {
     event.preventDefault(); 
     const { name } = values;
-    const isExist = contacts.findIndex(el => el.name.toLocaleLowerCase().trim() === name.toLocaleLowerCase().trim());
+    const isExist = contactsAll.findIndex(el => el.name.toLocaleLowerCase().trim() === name.toLocaleLowerCase().trim());
 
     if (isExist >= 0) {
-      alert(`Contact ${name} already exists!`);
+      toast.warning(`Contact ${name} is already exists!`);
       return;
     }
     
@@ -46,7 +48,6 @@ const Form = () => {
     //   phone: '',
     // });
     dispatch(fetchAddContacts(values))
-    console.log(values)
     event.currentTarget.reset()
     }
     

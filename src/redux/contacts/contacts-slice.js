@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "nanoid";
+
 
 const initialState = { 
     items: [],
     isLoading: false,
     error: null,
 }
-console.log(initialState.error)
+
 const contactsSlice = createSlice({
     name: 'contacts',
     initialState,
@@ -14,11 +14,11 @@ const contactsSlice = createSlice({
         fetchContactsLoading: (state) => {
             state.isLoading = true;
         },
-        fetchContactsSucsess: (state, {payload}) => {
+        fetchContactsSucsess: (state, { payload }) => {
             state.isLoading = false;
             state.items = [...payload];
         },
-        fetchContactsError: (state, {payload}) => {
+        fetchContactsError: (state, { payload }) => {
             state.isLoading = false;
             state.error = payload;
         },
@@ -26,30 +26,30 @@ const contactsSlice = createSlice({
             state.isLoading = true;
             state.error = null;
         },
-        addContactsSucsess: (state, {payload}) => {
+        addContactsSucsess: (state, { payload }) => {
             state.isLoading = false;
-            state.items = [...payload];
+            state.items = [...state.items, payload];
         },
-        addContactsError: (state, {payload}) => {
+        addContactsError: (state, { payload }) => {
             state.isLoading = false;
             state.error = payload;
         },
-        deleteContacts: (state, { payload }) => state.filter(item => item.id !== payload),
-        addContacts: {
-            reducer: (state, { payload }) => {
-               return [...state, payload];  
-            },
-            prepare: data => {
-                return {
-                    payload: {
-                        id: nanoid(),
-                        ...data,
-                    }
-                }
-            }
-        }
+        deleteContactsLoading: (state) => {
+            state.isLoading = true;
+            state.error = null;
+        },
+        deleteContactsSucsess: (state, { payload }) => {
+            state.isLoading = false;
+            state.items = state.items.filter(item => item.id !== payload.id);
+        },
+        deleteContactsError: (state, { payload }) => {
+            state.isLoading = false;
+            state.error = payload;
+            
+        },
     }
 })
 
-export const { addContacts, deleteContacts, fetchContactsLoading, fetchContactsError, fetchContactsSucsess, addContactsError, addContactsLoading, addContactsSucsess } = contactsSlice.actions;
+export const { fetchContactsLoading, fetchContactsError, fetchContactsSucsess, addContactsError, addContactsLoading, addContactsSucsess,
+deleteContactsError, deleteContactsSucsess, deleteContactsLoading} = contactsSlice.actions;
 export default contactsSlice.reducer;
