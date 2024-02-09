@@ -6,12 +6,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { fetchAddContacts } from "../../redux/contacts/contacts-operations";
 import { toast } from "react-toastify";
-import { contacts } from "../../redux/contacts/contacts-selector";
+import { selectContacts } from "../../redux/contacts/contacts-selector";
 
 
 
 const Form = () => {
-  const contactsAll = useSelector(contacts);
+  const contactsAll = useSelector(selectContacts);
   const dispatch = useDispatch();
   const [values, setValues] = useState({});
   
@@ -35,18 +35,6 @@ const Form = () => {
       toast.warning(`Contact ${name} is already exists!`);
       return;
     }
-    
-    // setValues({
-    //   contacts: [
-    //     ...contacts,
-    //     {
-    //       phone: values.phone,
-    //       name: values.name,
-    //     }
-    //   ],
-    //   name: '',
-    //   phone: '',
-    // });
     dispatch(fetchAddContacts(values))
     event.currentTarget.reset()
     }

@@ -1,8 +1,8 @@
 
 
-export const contacts = store => store.contacts.items;
+export const selectContacts = store => store.contacts.items;
 
-export const filterContacts = store => {
+export const selectFilterContacts = store => {
     const { contacts, filter } = store;
 
   if (!filter || typeof filter !== 'string') {
