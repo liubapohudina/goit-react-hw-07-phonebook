@@ -3,13 +3,14 @@ import styles from "./form.module.css";
 import PropTypes from "prop-types";
 import { Loader } from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilterContacts } from '../../redux/contacts/contacts-selector';
+import { selectFilterContacts} from '../../redux/contacts/contacts-selector';
 import { fetchContacts, fetchDeleteContacts } from "../../redux/contacts/contacts-operations";
 import { useEffect } from "react";
 
 
 const ContactList = () => {
   const { items, isLoading } = useSelector(selectFilterContacts);
+  
   const filteredContacts = useSelector(selectFilterContacts)
 
   const dispatch = useDispatch();
