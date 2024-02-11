@@ -2,36 +2,26 @@
     padding: 8px 10px;
     min-width: 200px;
     text-shadow: 1px 1px 2px blueviolet;
+    border-radius: 8px;
+    border: none;
+    background-color: inherit;
+    background: rgba(179, 115, 217, 0.6)
 }
 label {
-    color: rgb(107, 104, 104);
+    color: rgb(76, 73, 73);
 }
 
-.btn {
-    height: 35px;
-    cursor: pointer;
-    background-color: blueviolet;
-    transition: background-color 350ms cubic-bezier(0.47, 0, 0.745, 0.715), color 350ms cubic-bezier(0.47, 0, 0.745, 0.715);
-}
-.btn:hover,
-.btn.focus {
-    background-color: rgb(55, 12, 95);
-    color: whitesmoke;
-}
-input, button {
-    border-radius: 8px;
-    border-color: rgb(148, 112, 181);
-  
-}
-.form {
+form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 210px;
+    width: 100%;
 }
-.listContacts {
-    display: flex;
-    justify-content: baseline;
-    align-items: baseline;
-    gap: 8px;
+.p {
+    color: rgb(42, 37, 37);
+    font-size: 18px;
+}
+.infoForUser {
+    color: rgb(42, 37, 37);
+    font-size: 24px;
 }

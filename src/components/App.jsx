@@ -10,12 +10,19 @@ import Filter from "./Form/FilterSearch";
 
 export const App = () => {  
   return <div className="App">
-      <ToastContainer/>
+    <header></header>
+    <main>
+      <ToastContainer />
+      <section>
      <Title title="Phonebook">
         <Form />
-      </Title> 
-       <Filter /> 
-      <ContactList/> 
+        </Title> 
+      </section>
+      <Filter>
+        <ContactList />
+      </Filter>  
+    </main>
+    <footer/>
     </div>
   }
   

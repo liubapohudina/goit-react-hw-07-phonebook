@@ -1,0 +1,45 @@
+.btn {
+    border-radius: 8px;
+    color: rgb(42, 37, 37);
+    font-weight: 500;
+    font-size: 16px;
+    height: 35px;
+    width: 100%;
+    cursor: pointer;
+    background-color: blueviolet;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    border: none;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #ae21ff;
+}
+
+.btn:before,
+.btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    background: #ae21ff;
+    width: 0;
+    box-shadow: 0 0 5px #ae21ff, 0 0 5px #ae21ff inset;
+    transition: 400ms ease all;
+}
+
+.btn:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.btn:hover:before,
+.btn:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}

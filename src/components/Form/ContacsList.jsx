@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./form.module.css";
+import styles from './contactsList.module.css';
 import PropTypes from "prop-types";
 import { Loader } from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,8 +10,9 @@ import { useEffect } from "react";
 
 const ContactList = () => {
   const { items, isLoading } = useSelector(selectFilterContacts);
+ 
   
-  const filteredContacts = useSelector(selectFilterContacts)
+  const filteredContacts = useSelector(selectFilterContacts);
 
   const dispatch = useDispatch();
 
@@ -27,16 +28,16 @@ const ContactList = () => {
 
 const elements = items ? (
     items.map(item => (
-        <li className={styles.listContacts} key={item.id}>
-            <p>{item.name}  {item.phone}</p>
-            <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button> 
-        </li>
+      <li className={styles.itemContacts} key={item.id}>
+        <p className={styles.contactInfo}>{item.name} <a className={styles.link} href={`tel:${item.phone}`}>{item.phone}</a></p>
+        <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button>
+  </li>
     ))
 ) : (
     filteredContacts.map(item => (
-        <li className={styles.listContacts} key={item.id}>
-            <p>{item.name}  {item.phone}</p>
-            <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button> 
+        <li className={styles.itemContacts} key={item.id}>
+            <p className={styles.contactInfo}>{item.name}  {item.phone}</p>
+        <button id={item.id} className={styles.btn} onClick={() => onClickDelete(item.id)} type="button">Delete</button> 
         </li>
     ))
 );
@@ -46,9 +47,9 @@ const elements = items ? (
   return (
   <>
       {isLoading && <Loader />}
-      {<div className="contactsList">
-        <ul>{elements}</ul>
-      </div>}
+      <div className="contactsList">
+        <ul className={styles.contactsList}>{elements}</ul>
+      </div>
     </>
   );
 }
