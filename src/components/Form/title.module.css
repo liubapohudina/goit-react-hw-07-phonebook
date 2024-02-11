@@ -3,3 +3,10 @@
     color: rgb(42, 37, 37);
     margin-bottom: 10px;
 }
+/*--------------ADAPTIVE LAYOUT----------*/
+@media screen and (min-width: 728px) {
+    .title {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+}

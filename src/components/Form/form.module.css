@@ -28,3 +28,20 @@ form {
     color: rgb(42, 37, 37);
     font-size: 24px;
 }
+/*-----------------ADAPTIVE LAYOUT--------------*/
+@media screen and (min-width: 728px) {
+    .p,
+    .infoForUser {
+        font-size: 24px;
+    }
+    form {
+        gap: 15px;
+    }
+    label {
+        font-size: 22px;
+    }
+    .input {
+        font-size: 22px;
+        padding: 20px 10px;
+    }
+}

@@ -78,3 +78,12 @@
     width: 100%;
     transition: 800ms ease all;
 }
+/*----------------ADAPTIVE LAYOUT------------*/
+@media screen and (min-width: 728px) {
+    .btn,
+    .contactInfo {
+        font-size: 22px;
+        padding: 20px 15px;
+    }    
+} 
+    
