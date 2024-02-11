@@ -11,7 +11,7 @@ import Filter from "./Form/FilterSearch";
 export const App = () => {  
   return <div className="App">
     <header></header>
-    <main>
+    <main className='container'>
       <ToastContainer />
       <section>
      <Title title="Phonebook">

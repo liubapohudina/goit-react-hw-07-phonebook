@@ -34,21 +34,18 @@
     font-size: 15px;
     height: 35px;
     cursor: pointer;
-    background-color: blueviolet;
+    background-color: #ae21ff;
     transition: background-color 350ms cubic-bezier(0.47, 0, 0.745, 0.715), color 350ms cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
-.btn:hover,
-.btn.focus {
-    background-color: rgb(55, 12, 95);
-    color: whitesmoke;
-}
 .btn {
+    font-size: 15px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #ae21ff;
+    transition: background-color 350ms cubic-bezier(0.47, 0, 0.745, 0.715), color 350ms cubic-bezier(0.47, 0, 0.745, 0.715);
     border-radius: 8px;
     color: rgb(42, 37, 37);
-    margin: 0 auto;
-    cursor: pointer;
-    background-color: blueviolet;
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
