@@ -14,7 +14,7 @@ const Form = () => {
   const contactsAll = useSelector(selectContacts);
   const dispatch = useDispatch();
   const [values, setValues] = useState({});
-  
+
 
   const onChangeInput = (event) => {
   const { name, value } = event.target; 
@@ -35,8 +35,10 @@ const Form = () => {
       toast.warning(`Contact ${name} is already exists!`);
       return;
     }
-    dispatch(fetchAddContacts(values))
-    event.currentTarget.reset()
+    dispatch(fetchAddContacts(values));
+    if (contactsAll.length > 0) {
+      event.currentTarget.reset()
+    }
     }
     
   
