@@ -1,6 +1,7 @@
 .title {
     font-size: 32px;
     color: rgb(42, 37, 37);
+    text-shadow: 8px 0 8px #9f11e7, 12px 0 12px #0c0cc3;
     margin-bottom: 10px;
 }
 /*--------------ADAPTIVE LAYOUT----------*/
